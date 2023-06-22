@@ -25,21 +25,21 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      # Runs a set of commands using the runners shell
+      # Rodar e checar as versões do Newman e Node
       - name: Step 1 Check version Newman and Node
         run: |
           newman --version
           node --version
 
-      # Runs a single command using the runners shell
+      # Instalação do Newman e Report
       - name: Step 2 Install Newman-Reporter-Htmlextra
         run: sudo npm install --force -g newman-reporter-htmlextra
         
-      # Runs Collection
+      # Roda a coleção completa com variavéis 
       - name: Step 3 Execute collection
         run: newman run ./AcessGroup_ivan_ci -e ./localkey_ci --reporters cli, -r htmlextra --reporter-htmlextra-export ./results/Report.html
 
-      # Runs Documentation
+      # Roda e documenta tudo para o report
       - name: Step 4 Archive production artifacts
         uses: actions/upload-artifact@v3
         with:
