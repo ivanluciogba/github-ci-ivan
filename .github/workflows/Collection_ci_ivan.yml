@@ -37,7 +37,7 @@ jobs:
         
       # Runs Collection
       - name: Step 3 Execute collection
-        run: newman run ./AcessGroup_ivan_ci.json -e ./localkey_ci.json --reporters cli, -r htmlextra --reporter-htmlextra-export ./results/Report.html
+        run: newman run ./AcessGroup_ivan_ci -e ./localkey_ci --reporters cli, -r htmlextra --reporter-htmlextra-export ./results/Report.html
 
       # Runs Documentation
       - name: Step 4 Archive production artifacts
